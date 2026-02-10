@@ -4,7 +4,7 @@ pipeline {
 
 // token classic : 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
     stages {
-
+//
         stage('Init') {
             steps {
                 bat 'mvnw.cmd clean'
