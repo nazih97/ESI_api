@@ -18,11 +18,28 @@ pipeline {
                            id: 'jacoco', name: 'JaCoCo Coverage',
                            sourceCodeRetention: 'EVERY_BUILD',
                            qualityGates: [
-                                   [threshold: 60.0, metric: 'LINE', baseline: 'PROJECT', unstable: true],
-                                   [threshold: 60.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true]])
+                                   [threshold: 80.0, metric: 'LINE', baseline: 'PROJECT', unstable: true],
+                                   [threshold: 80.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true]])
             }
         }
 
+                 stage('Documentation') {
+                      steps {
+                          bat 'mvn.cmd javadoc:javadoc'
+                      }
+                      post {
+                       always {
+                                     publishHTML(target: [
+                                         allowMissing: false,
+                                         alwaysLinkToLastBuild: true,
+                                         keepAll: true,
+                                         reportDir: 'target/site/apidocs',
+                                         reportFiles: 'index.html',
+                                         reportName: 'Documentation'
+                                     ])
+                       }
+                      }
+                 }
 
 
      }
