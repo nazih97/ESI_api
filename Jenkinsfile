@@ -33,7 +33,7 @@ pipeline {
                                          allowMissing: false,
                                          alwaysLinkToLastBuild: true,
                                          keepAll: true,
-                                         reportDir: 'target/site/apidocs',
+                                         reportDir: 'target/site',
                                          reportFiles: 'index.html',
                                          reportName: 'Documentation'
                                      ])
