@@ -48,6 +48,12 @@ pipeline {
                              }
                          }
 
+                      stage('Deploy') {
+                          steps {
+                              bat 'mvn.cmd deploy'
+                          }
+                      }
+
 
      }
 }
