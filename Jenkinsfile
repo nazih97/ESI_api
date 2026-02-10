@@ -11,7 +11,7 @@ pipeline {
 
                 cucumber reportTitle: 'API Report',
                    fileIncludePattern: 'target/example-report.json'
-                   endsLimit: 10
+                   // endsLimit: 10
 
 
                    recordCoverage(tools: [[parser: 'JACOCO']],
