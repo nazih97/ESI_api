@@ -52,8 +52,6 @@ pipeline {
                           }
                       }
 
-
-
  steps {
         powershell """
         \$body = @{
