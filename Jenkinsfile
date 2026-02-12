@@ -69,14 +69,15 @@ pipeline {
 
         stage('release'){
         steps{
+withCredentials([string(credentialsId: 'nazihRelease', variable: 'nazih')]) {
 bat """
 curl -X POST https://api.github.com/repos/nazih97/ESI_api/releases ^
--H "Authorization: Bearer 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" ^
+-H "Authorization: Bearer ${nazih}" ^
 -H "Accept: application/vnd.github+json" ^
 -H "Content-Type: application/json" ^
 -d "{\\"tag_name\\":\\"v%VERSION%\\",\\"name\\":\\"Release v%VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
 """
-
+}
         }}
 
 
