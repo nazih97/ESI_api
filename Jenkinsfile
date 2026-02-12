@@ -39,8 +39,6 @@ pipeline {
                       }
                  }
 
-
-
                          stage('Build') {
                              steps {
                                  bat 'mvn.cmd package'
