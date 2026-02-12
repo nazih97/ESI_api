@@ -67,7 +67,7 @@ pipeline {
         }
 
 
-        stage('realise'){
+        stage('release'){
         steps{
 bat """
 curl -X POST https://api.github.com/repos/nazih97/ESI_api/releases ^
