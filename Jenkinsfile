@@ -55,14 +55,14 @@ pipeline {
 
                          stage('Slack') {
                              steps {
-                                 powershell '''
-                                 $payload = @{ text = "jenkins succes" } | ConvertTo-Json
-                                 Invoke-RestMethod `
+                                 powershell """
+                                 \$body =@{ text = "jenkins succes" } | ConvertTo-Json
+                                 Invoke-RestMethod
                                    -Uri "${SLACK_notif}" `
                                    -Method Post `
                                    -ContentType "application/json" `
-                                   -Body $payload
-                                 '''
+                                   -Body \$body
+                                 """
                              }
                          }
 
